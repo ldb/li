@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	ip := flag.BoolP("adress", "a", false, "show IP adresses")
+	ip := flag.BoolP("address", "a", false, "show IP addresses")
 	id := flag.BoolP("id", "i", false, "show instance-ID")
 	status := flag.BoolP("status", "s", false, "show instance status")
 	instanceType := flag.BoolP("type", "t", false, "show instance type")

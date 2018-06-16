@@ -4,7 +4,7 @@ li - Like `ls` but for EC2 instances
 ## Usage 
 
 ```
--a, --adress    show IP adresses
+-a, --address   show IP addresses
 -d, --details   show all information
 -h, --help      show help
 -i, --id        show instance-ID
