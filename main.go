@@ -44,21 +44,24 @@ func main() {
 			for _, t := range i.Tags {
 				if *t.Key == "Name" && matches(*t.Value, query) {
 					s := *t.Value
-					s = s + "\t" + *i.PrivateIpAddress
 
-					if *id || *detailed {
+					if i.PrivateIpAddress != nil {
+						s = s + "\t" + *i.PrivateIpAddress
+					}
+
+					if (*id || *detailed) && i.InstanceId != nil {
 						s = s + "\t" + *i.InstanceId
 					}
 
-					if *status || *detailed {
+					if (*status || *detailed) && i.State.Name != nil {
 						s = s + "\t" + *i.State.Name
 					}
 
-					if *instanceType || *detailed {
+					if (*instanceType || *detailed) && i.InstanceType != nil {
 						s = s + "\t" + *i.InstanceType
 					}
 
-					if *zone || *detailed {
+					if (*zone || *detailed) && i.Placement.AvailabilityZone != nil {
 						s = s + "\t" + *i.Placement.AvailabilityZone
 					}
 
