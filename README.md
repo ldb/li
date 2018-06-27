@@ -4,7 +4,6 @@ li - Like `ls` but for EC2 instances
 ## Usage 
 
 ```
--a, --address   show IP addresses
 -d, --details   show all information
 -h, --help      show help
 -i, --id        show instance-ID
@@ -17,13 +16,21 @@ li - Like `ls` but for EC2 instances
 
 IP Address only
 ```
-~> li -a redis sentinel
+~> li redis sentinel
 Redis Sentinel   165.91.65.2
 ```
    
 IP Address, instance status and availability-zone
 ```
-~> li -asz redis sentinel
+~> li -sz redis sentinel
 Redis Sentinel   165.91.65.2   running   us-west-1a
+
+```
+
+Detailed Information
+IP Address, instance status and availability-zone
+```
+~> li -d redis sentinel
+Redis Sentinel   165.91.65.2   i-xxxxxxxxxxxxxxxxx   running   t2.small   us-west-1a
 
 ```

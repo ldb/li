@@ -11,7 +11,6 @@ import (
 )
 
 func main() {
-	ip := flag.BoolP("address", "a", false, "show IP addresses")
 	id := flag.BoolP("id", "i", false, "show instance-ID")
 	status := flag.BoolP("status", "s", false, "show instance status")
 	instanceType := flag.BoolP("type", "t", false, "show instance type")
@@ -45,10 +44,7 @@ func main() {
 			for _, t := range i.Tags {
 				if *t.Key == "Name" && matches(*t.Value, query) {
 					s := *t.Value
-
-					if *ip || *detailed {
-						s = s + "\t" + *i.PrivateIpAddress
-					}
+					s = s + "\t" + *i.PrivateIpAddress
 
 					if *id || *detailed {
 						s = s + "\t" + *i.InstanceId
