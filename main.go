@@ -5,6 +5,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/ec2"
 	flag "github.com/spf13/pflag"
+	"log"
 	"os"
 	"strings"
 	"text/tabwriter"
@@ -32,8 +33,7 @@ func main() {
 
 	result, err := ec2Svc.DescribeInstances(nil)
 	if err != nil {
-		fmt.Printf("Error", err)
-		os.Exit(1)
+		log.Fatalf("error describing instances: %v", err)
 	}
 
 	query := strings.Join(flag.Args(), " ")
